@@ -10,5 +10,6 @@ public class MongoDBContext
         var client = new MongoClient(settings.Value.ConnectionString);
         _database = client.GetDatabase(settings.Value.DatabaseName);
     }
-    
+
+    public IMongoCollection<Person> Persons => _database.GetCollection<Person>("Persons"); 
 }
